@@ -1,112 +1,42 @@
 import profileImg from "./assets/profile.png";
 import Navbar from "./components/Navbar";
-import expressJsImg from "./assets/express js.png";
-import bootstrapImg from "./assets/bootstrap.png";
-import javaImg from "./assets/java.png";
-import html from "./assets/htmlLogo.png";
-import css from "./assets/cssLogo.png";
-import js from "./assets/javascriptLogo.png";
-import react from "./assets/reactjsLogo.png";
-import tailwind from "./assets/tailwindLogo.png";
-import redux from "./assets/redux.png";
-import node from "./assets/nodejsLogo.png";
-import git from "./assets/gitLogo.png";
-import mysql from "./assets/mysqlLogo.png";
 import { FaLinkedin, FaFacebookSquare, FaGithub } from "react-icons/fa";
 import webDesignImg from "./assets/web design.png";
 import webDevelopmentImg from "./assets/web development.png";
 import appDevelopmentImg from "./assets/app dev.png";
-import socketImg from "./assets/socket.io.png";
-import dialogflowImg from "./assets/dialogflow.png";
+import { skills } from "./constants/Skills";
+import { MdEmail } from "react-icons/md";
+import { FaPhone, FaLocationArrow } from "react-icons/fa";
 
 function App() {
-  const skills = [
-    {
-      name: "HTML",
-      icon: html,
-    },
-    {
-      name: "CSS",
-      icon: css,
-    },
-    {
-      name: "JavaScript",
-      icon: js,
-    },
-    {
-      name: "Bootstrap",
-      icon: bootstrapImg,
-    },
-    {
-      name: "Tailwind CSS",
-      icon: tailwind,
-    },
-    {
-      name: "React JS",
-      icon: react,
-    },
-    {
-      name: "Redux",
-      icon: redux,
-    },
-    {
-      name: "Node JS",
-      icon: node,
-    },
-    {
-      name: "Express JS",
-      icon: expressJsImg,
-    },
-    {
-      name: "Git Source Control",
-      icon: git,
-    },
-    {
-      name: "MySQL",
-      icon: mysql,
-    },
-
-    {
-      name: "Socket.IO",
-      icon: socketImg,
-    },
-    {
-      name: "Dialogflow",
-      icon: dialogflowImg,
-    },
-    {
-      name: "Java",
-      icon: javaImg,
-    },
-  ];
   return (
     <>
       <Navbar />
       <div
-        style={{ height: "calc(100vh - 56px)" }}
-        className="flex  flex-col-reverse items-center justify-center  space-y-8 md:flex-row md:space-x-16 md:space-y-0 px-6 bg-gradient-to-b from-slate-100 to-blue-100"
+        style={{ minHeight: "calc(100vh - 56px)" }}
+        className="flex md:p-20 px-5 gap-5 flex-col-reverse items-center justify-center  space-y-8 md:flex-row md:space-x-16 md:space-y-0 bg-gradient-to-b from-slate-100 to-blue-100"
       >
         {/* Text Section */}
         <div className="text-center md:text-left max-w-2xl">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800">
+          <h2 className="text-xl w-fit md:text-2xl font-extrabold text-slate-800">
             Hello, I&apos;m{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
+            <span className="typed-text text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
               Josiel Mark
             </span>
+          </h2>
+
+          <h1 className="text-3xl py-2 md:text-5xl font-extrabold text-blue-600">
+            Full-Stack Web Developer
           </h1>
-          <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-            I&apos;m a{" "}
-            <span className="font-bold text-blue-500">
-              Full-Stack Web Developer
-            </span>{" "}
-            with a passion for building beautiful and functional web
-            applications. I combine clean design with efficient code to deliver
-            exceptional user experiences.
+          <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-6">
+            I&apos;m a developer with a passion for building beautiful and
+            functional web applications. I combine clean design with efficient
+            code to deliver exceptional user experiences.
           </p>
 
           <div className="flex gap-5">
             {/* Contact Me Button */}
-            <button className="mt-6 px-8 py-3 flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white text-lg font-semibold rounded-lg shadow-lg hover:from-blue-600 hover:to-blue-800 hover:shadow-2xl transition-all">
+            <button className="mt-6 px-4 py-2 flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white text-lg font-semibold rounded-lg shadow-lg hover:from-blue-600 hover:to-blue-800 hover:shadow-2xl transition-all">
               Contact Me
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -121,8 +51,8 @@ function App() {
             </button>
 
             {/* Download CV Button */}
-            <button className="mt-6 px-8 py-3 flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-green-700 text-white text-lg font-semibold rounded-lg shadow-lg hover:from-green-600 hover:to-green-800 hover:shadow-2xl transition-all">
-              Download CV
+            <button className="mt-6 px-4 py-2 flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-green-700 text-white text-lg font-semibold rounded-lg shadow-lg hover:from-green-600 hover:to-green-800 hover:shadow-2xl transition-all">
+              Download Resume
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -137,7 +67,7 @@ function App() {
 
         {/* Profile Image Section */}
         <div className="flex flex-col items-center">
-          <div className=" relative">
+          <div className="w-80 relative">
             <img
               src={profileImg}
               alt="profile"
@@ -178,13 +108,13 @@ function App() {
       {/* About Section */}
       <div className="flex flex-col items-center justify-between  px-5 py-12 bg-gradient-to-b from-blue-100 to-slate-100">
         {/* Profile and Text Section */}
-        <div className="p-20 px-5 text-center md:text-left w-full space-y-4">
+        <div className="md:p-20 text-center md:text-left w-full space-y-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-800 md:text-4xl">
               About Me
             </h2>
             <p className="text-slate-600 leading-relaxed">
-              I&apos;m a freelance{" "}
+              I&apos;m a{" "}
               <span className="font-bold text-blue-500">
                 Full-Stack Developer
               </span>{" "}
@@ -205,7 +135,7 @@ function App() {
             </p>
           </div>
         </div>
-        <div className="p-20 w-full px-5">
+        <div className="md:p-20 w-full mt-10">
           <h1 className="text-4xl font-extrabold text-center text-blue-600 mb-10">
             My Services
           </h1>
@@ -222,8 +152,7 @@ function App() {
                 </div>
                 <h2 className="text-xl font-bold text-slate-800">Web Design</h2>
                 <p className="text-center text-slate-600 mt-2">
-                  Crafting visually stunning and user-friendly designs for your
-                  website.
+                  I create visually stunning and user-friendly web interfaces.
                 </p>
               </div>
 
@@ -240,7 +169,7 @@ function App() {
                   Web App Development
                 </h2>
                 <p className="text-center text-slate-600 mt-2">
-                  Building scalable, responsive, and high-performing websites.
+                  I build scalable, responsive, and high-performing websites.
                 </p>
               </div>
 
@@ -257,7 +186,8 @@ function App() {
                   Mobile App Development
                 </h2>
                 <p className="text-center text-slate-600 mt-2">
-                  Developing intuitive and functional mobile applications.
+                  I create cross-platform mobile applications for iOS and
+                  Android.
                 </p>
               </div>
             </div>
@@ -265,7 +195,7 @@ function App() {
         </div>
 
         {/* Skills Section */}
-        <div className="w-full md:p-20 px-5">
+        <div className="w-full md:p-20 px-5 mt-10">
           <h3 className="text-3xl font-bold text-blue-600 mb-6 text-center">
             My Skills
           </h3>
@@ -288,6 +218,177 @@ function App() {
               ))}
             </ul>
           </div>
+        </div>
+
+        {/* Projects Section */}
+        <div className="w-full md:p-20">
+          <h3 className="text-3xl font-bold text-blue-600 mb-6 text-center">
+            My Projects
+          </h3>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Project 1 */}
+              <div className="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
+                <div className="w-full h-48 mb-4">
+                  <img
+                    src="https://via.placeholder.com/300"
+                    alt="Project 1"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h2 className="text-xl font-bold text-slate-800">Project 1</h2>
+                <p className="text-center text-slate-600 mt-2">
+                  A brief description of the project goes here.
+                </p>
+              </div>
+
+              {/* Project 2 */}
+              <div className="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
+                <div className="w-full h-48 mb-4">
+                  <img
+                    src="https://via.placeholder.com/300"
+                    alt="Project 2"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h2 className="text-xl font-bold text-slate-800">Project 2</h2>
+                <p className="text-center text-slate-600 mt-2">
+                  A brief description of the project goes here.
+                </p>
+              </div>
+
+              {/* Project 3 */}
+              <div className="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
+                <div className="w-full h-48 mb-4">
+                  <img
+                    src="https://via.placeholder.com/300"
+                    alt="Project 3"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h2 className="text-xl font-bold text-slate-800">Project 3</h2>
+                <p className="text-center text-slate-600 mt-2">
+                  A brief description of the project goes here.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Section */}
+        <div className="w-full md:p-20">
+          <h3 className="text-3xl font-bold text-blue-600 mb-6 text-center">
+            Get In Touch
+          </h3>
+
+          <div className="w-full flex md:flex-row flex-col  justify-between gap-10 ">
+            <div className="flex  flex-col md:w-1/2 w-full space-y-6">
+              <h4 className="text-2xl font-bold text-slate-800">
+                Contact Info
+              </h4>
+
+              <p className="text-slate-600">
+                I&apos;m currently open to new opportunities and collaborations.
+                If you&apos;d like to work together on a project or have any
+                questions, feel free to reach out to me using the contact form
+                below.
+              </p>
+
+              <p className="flex items-center gap-3">
+                <MdEmail className=" text-blue-600" />
+
+                <span className=" font-bold text-blue-600  text-center">
+                  jmseroy@gmail.com
+                </span>
+              </p>
+              <p className="flex items-center gap-3">
+                <FaPhone className=" text-blue-600" />
+
+                <span className=" font-bold text-blue-600  text-center">
+                  +639757718249
+                </span>
+              </p>
+              <p className="flex items-center gap-3">
+                <FaLocationArrow className="text-lg text-blue-600" />
+
+                <span className=" font-bold text-blue-600  text-center">
+                  Pagadian City, Zamboanga del Sur, Philippines
+                </span>
+              </p>
+
+              <div className="flex justify-center md:justify-start space-x-6 mt-6">
+                <a
+                  href="https://www.linkedin.com/in/josiel-mark-oliveros-7b0b3b1b4/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
+                >
+                  <FaLinkedin className="text-4xl" />
+                </a>
+                <a
+                  href="https://www.facebook.com/josielmark.oliveros/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
+                >
+                  <FaFacebookSquare className="text-4xl" />
+                </a>
+                <a
+                  href="https://github.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
+                >
+                  <FaGithub className="text-4xl" />
+                </a>
+              </div>
+            </div>
+            <div className="md:w-1/2 w-full  bg-white p-6 rounded-lg shadow-lg">
+              <div className="max-w-4xl mx-auto">
+                <form className="grid grid-cols-1 gap-6">
+                  <div className="flex flex-col space-y-2">
+                    <input
+                      type="text"
+                      placeholder="Name"
+                      className="p-2 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600  border-none focus: outline-none"
+                    />
+                  </div>
+                  <div className="flex flex-col space-y-2">
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      className="p-2 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600 border-none outline-none"
+                    />
+                  </div>
+
+                  <div className="flex flex-col space-y-2">
+                    <input
+                      type="text"
+                      placeholder="Subject"
+                      className="p-2 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600 border-none outline-none"
+                    />
+                  </div>
+                  <div className="flex flex-col space-y-2">
+                    <textarea
+                      rows={4}
+                      placeholder="Send message here..."
+                      className="p-2 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600 border-none outline-none"
+                    />
+                  </div>
+                  <button className="w-fit px-4 bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300">
+                    Send Message
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Section */}
+        <div className="w-full bg-slate-100 text-center ">
+          <p className="text-slate-600">
+            &copy; 2025 Josiel Mark. All rights reserved.
+          </p>
         </div>
       </div>
     </>
