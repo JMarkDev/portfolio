@@ -14,7 +14,7 @@ function App() {
       <Navbar />
       <div
         style={{ minHeight: "calc(100vh - 56px)" }}
-        className="flex md:p-20 px-5 gap-5 flex-col-reverse items-center justify-center  space-y-8 md:flex-row md:space-x-16 md:space-y-0 bg-gradient-to-b from-slate-100 to-blue-100"
+        className="flex lg:p-20 px-6 gap-5 flex-col-reverse items-center justify-center  space-y-8 md:flex-row md:space-x-16 md:space-y-0 bg-white"
       >
         {/* Text Section */}
         <div className="text-center md:text-left max-w-2xl">
@@ -36,7 +36,7 @@ function App() {
 
           <div className="flex gap-5">
             {/* Contact Me Button */}
-            <button className="mt-6 px-4 py-2 flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white text-lg font-semibold rounded-lg shadow-lg hover:from-blue-600 hover:to-blue-800 hover:shadow-2xl transition-all">
+            <button className="mt-6 px-4 py-2 flex items-center justify-center gap-3 bg-blue-600 text-white md:text-lg text-sm rounded-lg shadow-lg hover:from-blue-600 hover:to-blue-800 hover:shadow-2xl transition-all">
               Contact Me
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ function App() {
             </button>
 
             {/* Download CV Button */}
-            <button className="mt-6 px-4 py-2 flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-green-700 text-white text-lg font-semibold rounded-lg shadow-lg hover:from-green-600 hover:to-green-800 hover:shadow-2xl transition-all">
+            <button className="mt-6 px-4 py-2 flex items-center justify-center gap-3 border-2 border-blue-600  md:text-lg text-sm rounded-lg shadow-lg hover:bg-blue-600 hover:text-white hover:shadow-2xl transition-all">
               Download Resume
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ function App() {
         </div>
 
         {/* Profile Image Section */}
-        <div className="flex flex-col items-center">
+        <div className="flex  flex-col items-center">
           <div className="w-80 relative">
             <img
               src={profileImg}
@@ -104,45 +104,72 @@ function App() {
           </div>
         </div>
       </div>
+
       {/* About Section */}
-      {/* About Section */}
-      <div className="flex flex-col items-center justify-between  px-5 py-12 bg-gradient-to-b from-blue-100 to-slate-100">
-        {/* Profile and Text Section */}
-        <div className="md:p-20 text-center md:text-left w-full space-y-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-800 md:text-4xl">
-              About Me
+      <div className="flex  flex-col md:mt-0 mt-10 items-center justify-between  bg-white">
+        <div className="flex  flex-col gap-12 lg:p-20 p-6 md:flex-row items-center justify-between w-full ">
+          {/* Profile Section */}
+          <div className="w-full md:w-1/2 flex flex-col items-center text-center">
+            <img
+              src={profileImg}
+              alt="profile"
+              className="w-40 h-40 rounded-full border-4 border-blue-500 shadow-lg"
+            />
+            <h1 className="text-3xl font-bold text-blue-500 mt-6">
+              Josiel Mark Seroy
+            </h1>
+            <p className="text-slate-600 mt-2 text-lg">jmseroy@gmail.com</p>
+          </div>
+
+          {/* About Section */}
+          <div className="w-full md:w-1/2 space-y-8">
+            {/* About Heading */}
+            <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl">
+              About <span className="text-blue-500">Me</span>
             </h2>
-            <p className="text-slate-600 leading-relaxed">
-              I&apos;m a{" "}
-              <span className="font-bold text-blue-500">
-                Full-Stack Developer
-              </span>{" "}
-              with a passion for crafting dynamic and impactful web
-              applications. My goal is to transform ideas into functional and
-              visually appealing digital solutions.
+
+            {/* About Content */}
+            <p className="text-slate-600 leading-relaxed text-lg">
+              I am a dedicated Full-Stack Developer with two years of experience
+              crafting dynamic, impactful web applications. My expertise lies in
+              transforming ideas into functional, user-friendly, and visually
+              appealing digital solutions. I prioritize writing clean, efficient
+              code and delivering exceptional user experiences. Whether working
+              collaboratively in a team or independently, I strive to create
+              meaningful and seamless digital products.
             </p>
-            <p className="text-slate-600 leading-relaxed">
-              With expertise in both frontend and backend development, I
-              specialize in building clean, efficient, and scalable applications
-              that solve real-world problems. I prioritize user experience,
-              maintainability, and performance in every project I undertake.
-            </p>
-            <p className="text-slate-600 leading-relaxed">
-              Whether it&apos;s creating a responsive interface, designing
-              robust backend systems, or optimizing workflows, I bring
-              creativity, logic, and precision to every line of code.
-            </p>
+
+            {/* Stats Section */}
+            <div className="grid sm:grid-cols-2 grid-cols-1 mt-8 gap-8">
+              {/* Stat Card 1 */}
+              <div className="text-center rounded-lg p-6 bg-white border border-gray-200 shadow-md w-full  transition-transform transform hover:scale-105">
+                <h1 className="text-5xl font-bold text-blue-500">+2</h1>
+                <p className="text-slate-600 mt-2">Years of Experience</p>
+              </div>
+
+              {/* Stat Card 2 */}
+              <div className="text-center rounded-lg p-6 bg-white border border-gray-200 shadow-md w-full transition-transform transform hover:scale-105">
+                <h1 className="text-5xl font-bold text-blue-500">+10</h1>
+                <p className="text-slate-600 mt-2">Projects Completed</p>
+              </div>
+
+              {/* Stat Card 3 */}
+              <div className="text-center rounded-lg p-6 bg-white border border-gray-200 shadow-md w-full transition-transform transform hover:scale-105">
+                <h1 className="text-5xl font-bold text-blue-500">+10</h1>
+                <p className="text-slate-600 mt-2">Satisfied Clients</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="md:p-20 w-full mt-10">
-          <h1 className="text-4xl font-extrabold text-center text-blue-600 mb-10">
-            My Services
-          </h1>
-          <div className="lg:px-20 mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-8">
+
+        <div className="lg:p-20 px-6 w-full mt-10">
+          <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
+            My <span className="text-blue-500">Services</span>
+          </h2>
+          <div className=" mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-8">
               {/* Web Design */}
-              <div className="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
+              <div className="flex flex-col items-center border border-gray-100 shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
                 <div className="w-16 h-16 mb-4">
                   <img
                     src={webDesignImg}
@@ -150,14 +177,17 @@ function App() {
                     className="w-full h-full"
                   />
                 </div>
-                <h2 className="text-xl font-bold text-slate-800">Web Design</h2>
+                <h2 className="lg:text-xl text-lg font-bold text-slate-800">
+                  Web Design
+                </h2>
                 <p className="text-center text-slate-600 mt-2">
-                  I create visually stunning and user-friendly web interfaces.
+                  Crafting visually stunning, intuitive, and user-friendly web
+                  designs that captivate and engage audiences.
                 </p>
               </div>
 
               {/* Web Development */}
-              <div className="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
+              <div className="flex flex-col items-center border border-gray-100 shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
                 <div className="w-16 h-16 mb-4">
                   <img
                     src={webDevelopmentImg}
@@ -165,16 +195,18 @@ function App() {
                     className="w-full h-full"
                   />
                 </div>
-                <h2 className="text-xl font-bold text-slate-800">
+                <h2 className="lg:text-xl text-lg font-bold text-slate-800">
                   Web App Development
                 </h2>
                 <p className="text-center text-slate-600 mt-2">
-                  I build scalable, responsive, and high-performing websites.
+                  Designing scalable, responsive, and high-performance web
+                  applications that provide engaging and seamless user
+                  experiences.
                 </p>
               </div>
 
               {/* App Development */}
-              <div className="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
+              <div className="flex flex-col items-center border border-gray-100 shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
                 <div className="w-16 h-16 mb-4">
                   <img
                     src={appDevelopmentImg}
@@ -182,12 +214,12 @@ function App() {
                     className="w-full h-full"
                   />
                 </div>
-                <h2 className="text-xl font-bold text-slate-800">
+                <h2 className="lg:text-xl text-lg font-bold text-slate-800">
                   Mobile App Development
                 </h2>
                 <p className="text-center text-slate-600 mt-2">
-                  I create cross-platform mobile applications for iOS and
-                  Android.
+                  Building intuitive, cross-platform mobile apps for iOS and
+                  Android, designed to meet diverse user needs.
                 </p>
               </div>
             </div>
@@ -195,16 +227,16 @@ function App() {
         </div>
 
         {/* Skills Section */}
-        <div className="w-full md:p-20 px-5 mt-10">
-          <h3 className="text-3xl font-bold text-blue-600 mb-6 text-center">
-            My Skills
-          </h3>
-          <div className="max-w-4xl mx-auto">
-            <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8  justify-items-center">
+        <div className="w-full lg:p-20 px-6 mt-10">
+          <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
+            My <span className="text-blue-500">Skills</span>
+          </h2>
+          <div className="w-full  mx-auto">
+            <ul className="flex flex-wrap justify-center gap-8">
               {skills.map((skill, index) => (
                 <li
                   key={index}
-                  className="w-44   flex flex-col items-center bg-gray-100 p-6 rounded-lg shadow-md transition-all hover:shadow-lg hover:-translate-y-2"
+                  className="w-[150px] sm:w-44 flex flex-col items-center border border-gray-100 p-6 rounded-lg shadow-md transition-all hover:shadow-lg hover:-translate-y-2"
                 >
                   <img
                     src={skill.icon}
@@ -221,12 +253,12 @@ function App() {
         </div>
 
         {/* Projects Section */}
-        <div className="w-full md:p-20">
-          <h3 className="text-3xl font-bold text-blue-600 mb-6 text-center">
-            My Projects
-          </h3>
+        <div className="w-full lg:p-20 px-6 mt-10">
+          <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
+            My <span className="text-blue-500">Projects</span>
+          </h2>
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Project 1 */}
               <div className="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
                 <div className="w-full h-48 mb-4">
@@ -276,88 +308,84 @@ function App() {
         </div>
 
         {/* Contact Section */}
-        <div className="w-full md:p-20">
-          <h3 className="text-3xl font-bold text-blue-600 mb-6 text-center">
-            Get In Touch
-          </h3>
+        <div className="w-full lg:p-20 bg-white px-6 mt-10">
+          <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
+            Get In <span className="text-blue-500">Touch</span>
+          </h2>
 
-          <div className="w-full flex md:flex-row flex-col  justify-between gap-10 ">
-            <div className="flex  flex-col md:w-1/2 w-full space-y-6">
+          <div className="w-full flex md:flex-row flex-col justify-between gap-10">
+            {/* Contact Info */}
+            <div className="flex  flex-col md:w-1/2 w-full space-y-6 ">
               <h4 className="text-2xl font-bold text-slate-800">
                 Contact Info
               </h4>
 
               <p className="text-slate-600">
                 I&apos;m currently open to new opportunities and collaborations.
-                If you&apos;d like to work together on a project or have any
-                questions, feel free to reach out to me using the contact form
-                below.
+                If you&apos;d like to work together or have any questions, feel
+                free to reach out to me using the contact form below.
               </p>
 
               <p className="flex items-center gap-3">
-                <MdEmail className=" text-blue-600" />
-
-                <span className=" font-bold text-blue-600  text-center">
-                  jmseroy@gmail.com
-                </span>
+                <MdEmail className="text-blue-600 text-lg" />
+                <span className="text-blue-600">jmseroy@gmail.com</span>
               </p>
-              <p className="flex items-center gap-3">
-                <FaPhone className=" text-blue-600" />
 
-                <span className=" font-bold text-blue-600  text-center">
-                  +639757718249
-                </span>
+              <p className="flex items-center gap-3">
+                <FaPhone className="text-blue-600 text-lg" />
+                <span className="text-blue-600">+639757718249</span>
               </p>
-              <p className="flex items-center gap-3">
-                <FaLocationArrow className="text-lg text-blue-600" />
 
-                <span className=" font-bold text-blue-600  text-center">
+              <p className="flex items-center gap-3">
+                <FaLocationArrow className="text-blue-600 text-lg" />
+                <span className="text-blue-600">
                   Pagadian City, Zamboanga del Sur, Philippines
                 </span>
               </p>
 
-              <div className="flex justify-center md:justify-start space-x-6 mt-6">
+              <div className="flex space-x-6 mt-6">
                 <a
                   href="https://www.linkedin.com/in/josiel-mark-oliveros-7b0b3b1b4/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
+                  className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
                 >
-                  <FaLinkedin className="text-4xl" />
+                  <FaLinkedin className="text-3xl" />
                 </a>
                 <a
                   href="https://www.facebook.com/josielmark.oliveros/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
+                  className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
                 >
-                  <FaFacebookSquare className="text-4xl" />
+                  <FaFacebookSquare className="text-3xl" />
                 </a>
                 <a
                   href="https://github.com/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
+                  className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
                 >
-                  <FaGithub className="text-4xl" />
+                  <FaGithub className="text-3xl" />
                 </a>
               </div>
             </div>
-            <div className="md:w-1/2 w-full  bg-white p-6 rounded-lg shadow-lg">
+
+            <div className="md:w-1/2 w-full  ">
               <div className="max-w-4xl mx-auto">
                 <form className="grid grid-cols-1 gap-6">
                   <div className="flex flex-col space-y-2">
                     <input
                       type="text"
                       placeholder="Name"
-                      className="p-2 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600  border-none focus: outline-none"
+                      className="p-2.5 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600  border-none focus: outline-none"
                     />
                   </div>
                   <div className="flex flex-col space-y-2">
                     <input
                       type="email"
                       placeholder="Email"
-                      className="p-2 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600 border-none outline-none"
+                      className="p-2.5 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600 border-none outline-none"
                     />
                   </div>
 
@@ -365,17 +393,17 @@ function App() {
                     <input
                       type="text"
                       placeholder="Subject"
-                      className="p-2 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600 border-none outline-none"
+                      className="p-2.5 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600 border-none outline-none"
                     />
                   </div>
                   <div className="flex flex-col space-y-2">
                     <textarea
                       rows={4}
                       placeholder="Send message here..."
-                      className="p-2 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600 border-none outline-none"
+                      className="p-2.5 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600 border-none outline-none"
                     />
                   </div>
-                  <button className="w-fit px-4 bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300">
+                  <button className="w-fit px-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300">
                     Send Message
                   </button>
                 </form>
@@ -385,7 +413,7 @@ function App() {
         </div>
 
         {/* Footer Section */}
-        <div className="w-full bg-slate-100 text-center ">
+        <div className="w-full  text-center mt-10">
           <p className="text-slate-600">
             &copy; 2025 Josiel Mark. All rights reserved.
           </p>

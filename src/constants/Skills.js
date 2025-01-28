@@ -13,6 +13,7 @@ import mysql from "../assets/mysqlLogo.png";
 import socketImg from "../assets/socket.io.png";
 import dialogflowImg from "../assets/dialogflow.png";
 import sequelizeImg from "../assets/sequelize.png";
+import jestJsImg from "../assets/jest-svgrepo-com.svg";
 
 export const skills = [
   {
@@ -72,6 +73,10 @@ export const skills = [
   {
     name: "Sequelize",
     icon: sequelizeImg,
+  },
+  {
+    name: "Jest",
+    icon: jestJsImg,
   },
   {
     name: "Java",
