@@ -1,23 +1,43 @@
+import { useState } from "react";
 import profileImg from "./assets/profile.png";
 import Navbar from "./components/Navbar";
-import { FaLinkedin, FaFacebookSquare, FaGithub } from "react-icons/fa";
 import webDesignImg from "./assets/web design.png";
 import webDevelopmentImg from "./assets/web development.png";
 import appDevelopmentImg from "./assets/app dev.png";
 import { skills } from "./constants/Skills";
 import { MdEmail } from "react-icons/md";
 import { FaPhone, FaLocationArrow } from "react-icons/fa";
+import SocialmediaLinks from "./components/SocialMedia/SocialMedia";
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openLink, setOpenLink] = useState("home");
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    setOpenLink(id);
+
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <>
-      <Navbar />
+      <Navbar
+        scrollToSection={scrollToSection}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+        openLink={openLink}
+      />
       <div
-        style={{ minHeight: "calc(100vh - 56px)" }}
-        className="flex lg:p-20 px-6 gap-5 flex-col-reverse items-center justify-center  space-y-8 md:flex-row md:space-x-16 md:space-y-0 bg-white"
+        id="home"
+        style={{ minHeight: "calc(100vh - 60px)" }}
+        className="flex h-screen lg:p-20 p-6 gap-5  lg:flex-row flex-col-reverse items-center justify-center  space-y-8 md:space-x-16 md:space-y-0 bg-white"
       >
         {/* Text Section */}
-        <div className="text-center md:text-left max-w-2xl">
+        <div className="text-left flex flex-col gap-3 ">
           <h2 className="text-xl w-fit md:text-2xl font-extrabold text-slate-800">
             Hello, I&apos;m{" "}
             <span className="typed-text text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
@@ -28,7 +48,7 @@ function App() {
           <h1 className="text-3xl py-2 md:text-5xl font-extrabold text-blue-600">
             Full-Stack Web Developer
           </h1>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-6">
+          <p className="text-justify  md:text-lg text-gray-600 leading-relaxed mb-6">
             I&apos;m a developer with a passion for building beautiful and
             functional web applications. I combine clean design with efficient
             code to deliver exceptional user experiences.
@@ -36,62 +56,75 @@ function App() {
 
           <div className="flex gap-5">
             {/* Contact Me Button */}
-            <button className="mt-6 px-4 py-2 flex items-center justify-center gap-3 bg-blue-600 text-white md:text-lg text-sm rounded-lg shadow-lg hover:from-blue-600 hover:to-blue-800 hover:shadow-2xl transition-all">
-              Contact Me
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 64 64"
-                id="send"
-                className="fill-current"
-              >
-                <path d="M8.216 36.338L26.885 32.604C28.552 32.271 28.552 31.729 26.885 31.396L8.216 27.662C7.104 27.44 6.021 26.356 5.799 25.245L2.065 6.576C1.731 4.908 2.714 4.133 4.259 4.846L61.228 31.139C62.257 31.614 62.257 32.386 61.228 32.861L4.259 59.154C2.714 59.867 1.731 59.092 2.065 57.424L5.799 38.755C6.021 37.644 7.104 36.56 8.216 36.338Z"></path>
-              </svg>
-            </button>
+            <div className="relative group">
+              <button className="relative text-nowrap px-4 py-3 flex items-center justify-center gap-3 md:text-lg text-sm text-white rounded-lg shadow-lg transition-all duration-300 bg-blue-600 overflow-hidden group-hover:scale-105">
+                <span className="z-10 transition-all duration-300 group-hover:text-white">
+                  Contact Me
+                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 64 64"
+                  className="fill-current z-10 transition-all duration-300 group-hover:text-white"
+                >
+                  <path d="M8.216 36.338L26.885 32.604C28.552 32.271 28.552 31.729 26.885 31.396L8.216 27.662C7.104 27.44 6.021 26.356 5.799 25.245L2.065 6.576C1.731 4.908 2.714 4.133 4.259 4.846L61.228 31.139C62.257 31.614 62.257 32.386 61.228 32.861L4.259 59.154C2.714 59.867 1.731 59.092 2.065 57.424L5.799 38.755C6.021 37.644 7.104 36.56 8.216 36.338Z"></path>
+                </svg>
+                {/* Expanding Gradient Background on Hover */}
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
+              </button>
+            </div>
 
-            {/* Download CV Button */}
-            <button className="mt-6 px-4 py-2 flex items-center justify-center gap-3 border-2 border-blue-600  md:text-lg text-sm rounded-lg shadow-lg hover:bg-blue-600 hover:text-white hover:shadow-2xl transition-all">
-              Download Resume
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                className="w-6 h-6"
-              >
-                <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm7-1v4H5v-4H3v4c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-4h-2z"></path>
-              </svg>
-            </button>
+            {/* Download Resume Button */}
+            <div className="relative group">
+              <button className="relative text-nowrap px-4 py-3 flex items-center justify-center gap-3 md:text-lg text-sm text-white rounded-lg shadow-lg transition-all duration-300 bg-blue-600 overflow-hidden group-hover:scale-105">
+                <span className="z-10 transition-all duration-300 group-hover:text-white">
+                  Download Resume
+                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  className="w-6 h-6 z-10 transition-all duration-300 group-hover:text-white"
+                >
+                  <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm7-1v4H5v-4H3v4c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-4h-2z"></path>
+                </svg>
+                {/* Expanding Gradient Background on Hover */}
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Profile Image Section */}
-        <div className="flex  flex-col items-center">
-          <div className="w-80 relative">
+        {/* Profile Image Section */}
+        <div className="flex flex-col items-center">
+          <div className="w-32 sm:w-40 lg:w-80 relative">
             <img
               src={profileImg}
               alt="profile"
-              className="rounded-full w-80 object-cover shadow-lg hover:scale-105 transition-transform"
+              className="rounded-full w-full object-cover shadow-lg hover:scale-105 transition-transform"
             />
             <div className="absolute inset-0 rounded-full border-4 border-blue-500 animate-pulse"></div>
           </div>
 
-          <div className="flex justify-center md:justify-start space-x-6 mt-6">
-            <a
+          <div className="flex justify-center md:justify-start space-x-6 ">
+            <SocialmediaLinks />
+            {/* <a
               href="https://www.linkedin.com/in/josiel-mark-oliveros-7b0b3b1b4/"
               target="_blank"
               rel="noreferrer"
               className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
             >
-              <FaLinkedin className="text-4xl" />
-            </a>
-            <a
+              <FaLinkedinIn className="text-2xl" />
+            </a> */}
+            {/* <a
               href="https://www.facebook.com/josielmark.oliveros/"
               target="_blank"
               rel="noreferrer"
               className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
             >
-              <FaFacebookSquare className="text-4xl" />
+              <FaFacebookF className="text-2xl" />
             </a>
             <a
               href="https://github.com/"
@@ -99,17 +132,20 @@ function App() {
               rel="noreferrer"
               className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
             >
-              <FaGithub className="text-4xl" />
-            </a>
+              <FaGithub className="text-2xl" />
+            </a> */}
           </div>
         </div>
       </div>
 
       {/* About Section */}
-      <div className="flex  flex-col md:mt-0 mt-10 items-center justify-between  bg-white">
-        <div className="flex  flex-col gap-12 lg:p-20 p-6 md:flex-row items-center justify-between w-full ">
+      <div
+        id="about"
+        className="flex  flex-col items-center justify-between  bg-white"
+      >
+        <div className="flex flex-col gap-12 lg:p-20 p-6 lg:flex-row items-center justify-between w-full ">
           {/* Profile Section */}
-          <div className="w-full md:w-1/2 flex flex-col items-center text-center">
+          <div className="w-full lg:w-1/2 flex flex-col items-center text-center">
             <img
               src={profileImg}
               alt="profile"
@@ -122,14 +158,14 @@ function App() {
           </div>
 
           {/* About Section */}
-          <div className="w-full md:w-1/2 space-y-8">
+          <div className="w-full lg:w-1/2 space-y-8">
             {/* About Heading */}
             <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl">
               About <span className="text-blue-500">Me</span>
             </h2>
 
             {/* About Content */}
-            <p className="text-slate-600 leading-relaxed text-lg">
+            <p className="text-slate-600 text-justify leading-relaxed text-lg">
               I am a dedicated Full-Stack Developer with two years of experience
               crafting dynamic, impactful web applications. My expertise lies in
               transforming ideas into functional, user-friendly, and visually
@@ -227,7 +263,7 @@ function App() {
         </div>
 
         {/* Skills Section */}
-        <div className="w-full lg:p-20 px-6 mt-10">
+        <div id="skills" className="w-full lg:p-20 px-6 mt-10">
           <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
             My <span className="text-blue-500">Skills</span>
           </h2>
@@ -236,14 +272,14 @@ function App() {
               {skills.map((skill, index) => (
                 <li
                   key={index}
-                  className="w-[150px] sm:w-44 flex flex-col items-center border border-gray-100 p-6 rounded-lg shadow-md transition-all hover:shadow-lg hover:-translate-y-2"
+                  className="w-[150px] h-[150px] sm:w-44 sm:h-44 flex flex-col items-center border border-gray-100 p-6 rounded-lg shadow-md transition-all hover:shadow-lg hover:-translate-y-2"
                 >
                   <img
                     src={skill.icon}
                     alt={skill.name}
                     className="w-[80px] h-[80px] mb-3"
                   />
-                  <span className="text-sm font-medium text-slate-700">
+                  <span className="text-sm text-nowrap font-medium text-slate-700">
                     {skill.name}
                   </span>
                 </li>
@@ -253,7 +289,7 @@ function App() {
         </div>
 
         {/* Projects Section */}
-        <div className="w-full lg:p-20 px-6 mt-10">
+        <div id="projects" className="w-full lg:p-20 px-6 mt-10">
           <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
             My <span className="text-blue-500">Projects</span>
           </h2>
@@ -308,7 +344,7 @@ function App() {
         </div>
 
         {/* Contact Section */}
-        <div className="w-full lg:p-20 bg-white px-6 mt-10">
+        <div id="contact" className="w-full lg:p-20 bg-white px-6 mt-10">
           <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
             Get In <span className="text-blue-500">Touch</span>
           </h2>
@@ -320,7 +356,7 @@ function App() {
                 Contact Info
               </h4>
 
-              <p className="text-slate-600">
+              <p className="text-slate-600 text-justify">
                 I&apos;m currently open to new opportunities and collaborations.
                 If you&apos;d like to work together or have any questions, feel
                 free to reach out to me using the contact form below.
@@ -343,14 +379,15 @@ function App() {
                 </span>
               </p>
 
-              <div className="flex space-x-6 mt-6">
-                <a
+              <div className="flex flex-start space-x-6 mt-6">
+                <SocialmediaLinks />
+                {/* <a
                   href="https://www.linkedin.com/in/josiel-mark-oliveros-7b0b3b1b4/"
                   target="_blank"
                   rel="noreferrer"
                   className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
                 >
-                  <FaLinkedin className="text-3xl" />
+                  <FaLinkedinIn className="text-2xl" />
                 </a>
                 <a
                   href="https://www.facebook.com/josielmark.oliveros/"
@@ -358,7 +395,7 @@ function App() {
                   rel="noreferrer"
                   className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
                 >
-                  <FaFacebookSquare className="text-3xl" />
+                  <FaFacebookF className="text-2xl" />
                 </a>
                 <a
                   href="https://github.com/"
@@ -366,26 +403,29 @@ function App() {
                   rel="noreferrer"
                   className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
                 >
-                  <FaGithub className="text-3xl" />
-                </a>
+                  <FaGithub className="text-2xl" />
+                </a> */}
               </div>
             </div>
 
             <div className="md:w-1/2 w-full  ">
+              <h4 className="text-2xl mb-6 font-bold text-slate-800">
+                Contact Form
+              </h4>
               <div className="max-w-4xl mx-auto">
                 <form className="grid grid-cols-1 gap-6">
                   <div className="flex flex-col space-y-2">
                     <input
                       type="text"
                       placeholder="Name"
-                      className="p-2.5 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600  border-none focus: outline-none"
+                      className="p-2.5 shadow-md border border-gray-300 rounded-lg   focus:ring-blue-500 focus:border-blue-600 focus:outline-none "
                     />
                   </div>
                   <div className="flex flex-col space-y-2">
                     <input
                       type="email"
                       placeholder="Email"
-                      className="p-2.5 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600 border-none outline-none"
+                      className="p-2.5 shadow-md border border-gray-300 rounded-lg   focus:ring-blue-500 focus:border-blue-600 focus:outline-none "
                     />
                   </div>
 
@@ -393,14 +433,14 @@ function App() {
                     <input
                       type="text"
                       placeholder="Subject"
-                      className="p-2.5 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600 border-none outline-none"
+                      className="p-2.5 shadow-md border border-gray-300 rounded-lg   focus:ring-blue-500 focus:border-blue-600 focus:outline-none "
                     />
                   </div>
                   <div className="flex flex-col space-y-2">
                     <textarea
                       rows={4}
                       placeholder="Send message here..."
-                      className="p-2.5 bg-gray-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-600 border-none outline-none"
+                      className="p-2.5 shadow-md border border-gray-300 rounded-lg   focus:ring-blue-500 focus:border-blue-600 focus:outline-none "
                     />
                   </div>
                   <button className="w-fit px-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300">
@@ -413,7 +453,7 @@ function App() {
         </div>
 
         {/* Footer Section */}
-        <div className="w-full  text-center mt-10">
+        <div className="w-full p-4 text-center mt-10">
           <p className="text-slate-600">
             &copy; 2025 Josiel Mark. All rights reserved.
           </p>
