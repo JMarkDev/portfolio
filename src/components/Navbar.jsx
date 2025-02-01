@@ -1,5 +1,11 @@
 import propTypes from "prop-types";
-import { FaLinkedinIn, FaFacebookF, FaGithub } from "react-icons/fa";
+import {
+  FaLinkedinIn,
+  FaFacebookF,
+  FaGithub,
+  // FaPinterest,
+} from "react-icons/fa";
+import { FaDribbble } from "react-icons/fa6";
 
 const Navbar = ({ scrollToSection, isMenuOpen, setIsMenuOpen, openLink }) => {
   return (
@@ -142,28 +148,37 @@ const Navbar = ({ scrollToSection, isMenuOpen, setIsMenuOpen, openLink }) => {
         >
           <div className="flex gap-3 space-x-3 text-2xl text-gray-800">
             <a
-              href="https://www.linkedin.com/in/josiel-mark-oliveros-7b0b3b1b4/"
+              href="https://www.linkedin.com/in/josiel-mark-seroy-0a9341245/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
             >
               <FaLinkedinIn className="text-2xl" />
             </a>
             <a
-              href="https://www.facebook.com/josielmark.oliveros/"
+              href="https://www.facebook.com/people/Josiel-Mark-Miel-Seroy/pfbid04hZEiTAxwsKgHqAZUgw97v1k24Vu2aEVKccugJx4NkcsY8tP3TGzb7mZ9KpZ49r7l/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
             >
               <FaFacebookF className="text-2xl" />
             </a>
             <a
-              href="https://github.com/"
+              href="
+             https://github.com/JMarkDev "
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
             >
               <FaGithub className="text-2xl" />
+            </a>
+            <a
+              href="https://dribbble.com/JMarkDev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
+            >
+              <FaDribbble className="text-2xl" />
             </a>
           </div>
         </li>
