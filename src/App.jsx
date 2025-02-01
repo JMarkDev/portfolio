@@ -5,6 +5,7 @@ import webDesignImg from "./assets/web design.png";
 import webDevelopmentImg from "./assets/web development.png";
 import appDevelopmentImg from "./assets/app dev.png";
 import { skills } from "./constants/Skills";
+import { projects } from "./constants/Projects";
 import { MdEmail } from "react-icons/md";
 import { FaPhone, FaLocationArrow } from "react-icons/fa";
 import SocialmediaLinks from "./components/SocialMedia/SocialMedia";
@@ -18,7 +19,19 @@ function App() {
     setOpenLink(id);
 
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      let offset = 0;
+
+      if (window.innerWidth < 768) {
+        offset = 80;
+      }
+      const sectionPosition =
+        section.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({
+        top: sectionPosition,
+        behavior: "smooth",
+      });
+
       setIsMenuOpen(false);
     }
   };
@@ -34,7 +47,7 @@ function App() {
       <div
         id="home"
         style={{ minHeight: "calc(100vh - 60px)" }}
-        className="flex h-screen lg:p-20 p-6 gap-5  lg:flex-row flex-col-reverse items-center justify-center  space-y-8 md:space-x-16 md:space-y-0 bg-white"
+        className="flex h-screen lg:p-20  p-6 gap-5  lg:flex-row flex-col-reverse items-center justify-center  space-y-8 md:space-x-16 md:space-y-0 bg-white"
       >
         {/* Text Section */}
         <div className="text-left flex flex-col gap-3 ">
@@ -56,9 +69,13 @@ function App() {
 
           <div className="flex gap-5">
             {/* Contact Me Button */}
+
             <div className="relative group">
-              <button className="relative text-nowrap px-4 py-3 flex items-center justify-center gap-3 md:text-lg text-sm text-white rounded-lg shadow-lg transition-all duration-300 bg-blue-600 overflow-hidden group-hover:scale-105">
-                <span className="z-10 transition-all duration-300 group-hover:text-white">
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="hover:bg-blue-600 relative text-nowrap px-4 py-2.5 flex items-center justify-center gap-3 md:text-lg text-sm text-blue-600 rounded-lg shadow-lg transition-all duration-300 border-blue-600 border-2 "
+              >
+                <span className=" transition-all duration-300 group-hover:text-white">
                   Contact Me
                 </span>
                 <svg
@@ -66,31 +83,27 @@ function App() {
                   width="24"
                   height="24"
                   viewBox="0 0 64 64"
-                  className="fill-current z-10 transition-all duration-300 group-hover:text-white"
+                  className="fill-current  transition-all duration-300 group-hover:text-white"
                 >
                   <path d="M8.216 36.338L26.885 32.604C28.552 32.271 28.552 31.729 26.885 31.396L8.216 27.662C7.104 27.44 6.021 26.356 5.799 25.245L2.065 6.576C1.731 4.908 2.714 4.133 4.259 4.846L61.228 31.139C62.257 31.614 62.257 32.386 61.228 32.861L4.259 59.154C2.714 59.867 1.731 59.092 2.065 57.424L5.799 38.755C6.021 37.644 7.104 36.56 8.216 36.338Z"></path>
                 </svg>
-                {/* Expanding Gradient Background on Hover */}
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
               </button>
             </div>
 
             {/* Download Resume Button */}
             <div className="relative group">
-              <button className="relative text-nowrap px-4 py-3 flex items-center justify-center gap-3 md:text-lg text-sm text-white rounded-lg shadow-lg transition-all duration-300 bg-blue-600 overflow-hidden group-hover:scale-105">
-                <span className="z-10 transition-all duration-300 group-hover:text-white">
+              <button className="hover:bg-blue-600 relative text-nowrap px-4 py-2.5 flex items-center justify-center gap-3 md:text-lg text-sm text-blue-600 rounded-lg shadow-lg transition-all duration-300 border-blue-600 border-2 ">
+                <span className=" transition-all duration-300 group-hover:text-white">
                   Download Resume
                 </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 24 24"
-                  className="w-6 h-6 z-10 transition-all duration-300 group-hover:text-white"
+                  className="w-6 h-6  transition-all duration-300 group-hover:text-white"
                 >
                   <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm7-1v4H5v-4H3v4c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-4h-2z"></path>
                 </svg>
-                {/* Expanding Gradient Background on Hover */}
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
               </button>
             </div>
           </div>
@@ -110,30 +123,6 @@ function App() {
 
           <div className="flex justify-center md:justify-start space-x-6 ">
             <SocialmediaLinks />
-            {/* <a
-              href="https://www.linkedin.com/in/josiel-mark-oliveros-7b0b3b1b4/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
-            >
-              <FaLinkedinIn className="text-2xl" />
-            </a> */}
-            {/* <a
-              href="https://www.facebook.com/josielmark.oliveros/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
-            >
-              <FaFacebookF className="text-2xl" />
-            </a>
-            <a
-              href="https://github.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-gray-800 hover:text-gray-900 transition-colors duration-300"
-            >
-              <FaGithub className="text-2xl" />
-            </a> */}
           </div>
         </div>
       </div>
@@ -143,7 +132,7 @@ function App() {
         id="about"
         className="flex  flex-col items-center justify-between  bg-white"
       >
-        <div className="flex flex-col gap-12 lg:p-20 p-6 lg:flex-row items-center justify-between w-full ">
+        <div className="flex flex-col gap-12 lg:p-20  p-6 lg:flex-row items-center justify-between w-full ">
           {/* Profile Section */}
           <div className="w-full lg:w-1/2 flex flex-col items-center text-center">
             <img
@@ -263,13 +252,13 @@ function App() {
         </div>
 
         {/* Skills Section */}
-        <div id="skills" className="w-full lg:p-20 px-6 mt-10">
+        <div id="skills" className="w-full lg:p-20  px-6 mt-10">
           <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
             My <span className="text-blue-500">Skills</span>
           </h2>
           <div className="w-full  mx-auto">
             <ul className="flex flex-wrap justify-center gap-8">
-              {skills.map((skill, index) => (
+              {skills?.map((skill, index) => (
                 <li
                   key={index}
                   className="w-[150px] h-[150px] sm:w-44 sm:h-44 flex flex-col items-center border border-gray-100 p-6 rounded-lg shadow-md transition-all hover:shadow-lg hover:-translate-y-2"
@@ -289,56 +278,79 @@ function App() {
         </div>
 
         {/* Projects Section */}
-        <div id="projects" className="w-full lg:p-20 px-6 mt-10">
+        <div id="projects" className="w-full lg:p-20   px-6 mt-10">
           <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
-            My <span className="text-blue-500">Projects</span>
+            Personal <span className="text-blue-500">Projects</span>
           </h2>
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Project 1 */}
-              <div className="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
-                <div className="w-full h-48 mb-4">
-                  <img
-                    src="https://via.placeholder.com/300"
-                    alt="Project 1"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h2 className="text-xl font-bold text-slate-800">Project 1</h2>
-                <p className="text-center text-slate-600 mt-2">
-                  A brief description of the project goes here.
-                </p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  justify-items-center gap-8">
+              {projects?.map((project, index) => {
+                return project.category === "Personal Projects" ? (
+                  <div
+                    key={index}
+                    className="flex flex-col max-w-[400px] w-full bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105"
+                  >
+                    {/* Image Section */}
+                    <div className="w-full h-48 mb-4">
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="w-full h-full sm:object-contain md:object-cover rounded-lg"
+                      />
+                    </div>
 
-              {/* Project 2 */}
-              <div className="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
-                <div className="w-full h-48 mb-4">
-                  <img
-                    src="https://via.placeholder.com/300"
-                    alt="Project 2"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h2 className="text-xl font-bold text-slate-800">Project 2</h2>
-                <p className="text-center text-slate-600 mt-2">
-                  A brief description of the project goes here.
-                </p>
-              </div>
+                    {/* Title */}
+                    <h2 className="text-lg font-bold text-slate-800  truncate">
+                      {project.name}
+                    </h2>
 
-              {/* Project 3 */}
-              <div className="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
-                <div className="w-full h-48 mb-4">
-                  <img
-                    src="https://via.placeholder.com/300"
-                    alt="Project 3"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h2 className="text-xl font-bold text-slate-800">Project 3</h2>
-                <p className="text-center text-slate-600 mt-2">
-                  A brief description of the project goes here.
-                </p>
-              </div>
+                    {/* Description with Ellipsis */}
+                    <p className="text-left text-slate-600 mt-2 line-clamp-5">
+                      {project.description}
+                    </p>
+
+                    {/* View Project Button */}
+                    <div className="mt-5">
+                      <a href="">Live Demo</a>
+                    </div>
+                  </div>
+                ) : null;
+              })}
+            </div>
+          </div>
+
+          <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl my-10 text-center">
+            Freelance <span className="text-blue-500">Projects</span>
+          </h2>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  justify-items-center gap-8">
+              {projects?.map((project, index) => {
+                return project.category === "Freelance Projects" ? (
+                  <div
+                    key={index}
+                    className="flex flex-col max-w-[400px] w-full bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105"
+                  >
+                    {/* Image Section */}
+                    <div className="w-full h-48 mb-4">
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="w-full h-full sm:object-contain md:object-cover rounded-lg"
+                      />
+                    </div>
+
+                    {/* Title */}
+                    <h2 className="text-lg font-bold text-slate-800  truncate">
+                      {project.name}
+                    </h2>
+
+                    {/* Description with Ellipsis */}
+                    <p className="text-left text-slate-600 mt-2 line-clamp-5">
+                      {project.description}
+                    </p>
+                  </div>
+                ) : null;
+              })}
             </div>
           </div>
         </div>
@@ -349,7 +361,7 @@ function App() {
             Get In <span className="text-blue-500">Touch</span>
           </h2>
 
-          <div className="w-full flex md:flex-row flex-col justify-between gap-10">
+          <div className="w-full flex md:flex-row flex-col-reverse justify-between gap-10">
             {/* Contact Info */}
             <div className="flex  flex-col md:w-1/2 w-full space-y-6 ">
               <h4 className="text-2xl font-bold text-slate-800">
@@ -381,34 +393,10 @@ function App() {
 
               <div className="flex flex-start space-x-6 mt-6">
                 <SocialmediaLinks />
-                {/* <a
-                  href="https://www.linkedin.com/in/josiel-mark-oliveros-7b0b3b1b4/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
-                >
-                  <FaLinkedinIn className="text-2xl" />
-                </a>
-                <a
-                  href="https://www.facebook.com/josielmark.oliveros/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
-                >
-                  <FaFacebookF className="text-2xl" />
-                </a>
-                <a
-                  href="https://github.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
-                >
-                  <FaGithub className="text-2xl" />
-                </a> */}
               </div>
             </div>
 
-            <div className="md:w-1/2 w-full  ">
+            <div className="md:w-1/2 w-full ">
               <h4 className="text-2xl mb-6 font-bold text-slate-800">
                 Contact Form
               </h4>
