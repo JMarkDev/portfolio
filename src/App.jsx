@@ -9,10 +9,14 @@ import { projects } from "./constants/Projects";
 import { MdEmail } from "react-icons/md";
 import { FaPhone, FaLocationArrow } from "react-icons/fa";
 import SocialmediaLinks from "./components/SocialMedia/SocialMedia";
+import { gameApps } from "./constants/GameApp";
+import Modal from "./components/Modal";
+import { AiOutlineGlobal } from "react-icons/ai";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openLink, setOpenLink] = useState("home");
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
@@ -47,7 +51,7 @@ function App() {
       <div
         id="home"
         style={{ minHeight: "calc(100vh - 60px)" }}
-        className="flex h-screen lg:p-20  p-6 gap-5  lg:flex-row flex-col-reverse items-center justify-center  space-y-8 md:space-x-16 md:space-y-0 bg-white"
+        className="flex h-screen xl:p-20  p-6 gap-5  lg:flex-row flex-col-reverse items-center justify-center  space-y-8 md:space-x-16 md:space-y-0 bg-white"
       >
         {/* Text Section */}
         <div className="text-left flex flex-col gap-3 ">
@@ -132,7 +136,7 @@ function App() {
         id="about"
         className="flex  flex-col items-center justify-between  bg-white"
       >
-        <div className="flex flex-col gap-12 lg:p-20  p-6 lg:flex-row items-center justify-between w-full ">
+        <div className="flex flex-col gap-12 xl:p-20  p-6 lg:flex-row items-center justify-between w-full ">
           {/* Profile Section */}
           <div className="w-full lg:w-1/2 flex flex-col items-center text-center">
             <img
@@ -147,21 +151,23 @@ function App() {
           </div>
 
           {/* About Section */}
-          <div className="w-full lg:w-1/2 space-y-8">
+          <div className="w-full lg:w-1/2 space-y-4">
             {/* About Heading */}
             <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl">
               About <span className="text-blue-500">Me</span>
             </h2>
 
             {/* About Content */}
-            <p className="text-slate-600 text-justify leading-relaxed text-lg">
-              I am a dedicated Full-Stack Developer with two years of experience
-              crafting dynamic, impactful web applications. My expertise lies in
-              transforming ideas into functional, user-friendly, and visually
-              appealing digital solutions. I prioritize writing clean, efficient
-              code and delivering exceptional user experiences. Whether working
-              collaboratively in a team or independently, I strive to create
-              meaningful and seamless digital products.
+            <p className="text-slate-600 text-justify leading-relaxed ">
+              I am a results-driven Full-Stack Developer with two years of
+              experience building dynamic and scalable web applications. I
+              specialize in crafting intuitive, high-performance digital
+              solutions tailored to user needs and project requirements. With
+              expertise in both front-end and back-end technologies, I ensure
+              seamless functionality, clean and efficient code, and exceptional
+              user experiences. Whether collaborating in a team or working
+              independently, I am committed to delivering innovative and
+              impactful applications.
             </p>
 
             {/* Stats Section */}
@@ -187,7 +193,7 @@ function App() {
           </div>
         </div>
 
-        <div className="lg:p-20 px-6 w-full mt-10">
+        <div className="xl:p-20 px-6 w-full mt-10">
           <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
             My <span className="text-blue-500">Services</span>
           </h2>
@@ -252,7 +258,7 @@ function App() {
         </div>
 
         {/* Skills Section */}
-        <div id="skills" className="w-full lg:p-20  px-6 mt-10">
+        <div id="skills" className="w-full xl:p-20  px-6 mt-10">
           <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
             My <span className="text-blue-500">Skills</span>
           </h2>
@@ -278,7 +284,7 @@ function App() {
         </div>
 
         {/* Projects Section */}
-        <div id="projects" className="w-full lg:p-20   px-6 mt-10">
+        <div id="projects" className="w-full xl:p-20   px-6 mt-10">
           <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
             Personal <span className="text-blue-500">Projects</span>
           </h2>
@@ -291,27 +297,64 @@ function App() {
                     className="flex flex-col max-w-[400px] w-full bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105"
                   >
                     {/* Image Section */}
-                    <div className="w-full h-48 mb-4">
+                    <div className="w-full h-52 mb-4">
                       <img
                         src={project.image}
                         alt={project.name}
                         className="w-full h-full sm:object-contain md:object-cover rounded-lg"
                       />
                     </div>
-
                     {/* Title */}
-                    <h2 className="text-lg font-bold text-slate-800  truncate">
+                    <h2 className="text-xl font-semibold text-slate-800 truncate">
                       {project.name}
                     </h2>
 
                     {/* Description with Ellipsis */}
-                    <p className="text-left text-slate-600 mt-2 line-clamp-5">
+                    <p className="text-slate-600 mt-2 line-clamp-4">
                       {project.description}
                     </p>
 
                     {/* View Project Button */}
-                    <div className="mt-5">
-                      <a href="">Live Demo</a>
+                    <div className=" flex justify-between">
+                      {project.link && (
+                        <div className="mt-4">
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-blue-600 font-medium hover:text-blue-800 transition"
+                          >
+                            <AiOutlineGlobal />
+                            Live Demo
+                          </a>
+                        </div>
+                      )}
+
+                      {/* GitHub Link */}
+                      {project.github && (
+                        <div className="mt-4">
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-blue-600 font-medium hover:text-blue-800 transition"
+                          >
+                            <svg
+                              className="w-5 h-5"
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M12 2a10 10 0 00-3.162 19.497c.5.092.682-.216.682-.481 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.455-1.155-1.11-1.463-1.11-1.463-.907-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.34 1.088 2.91.832.091-.647.349-1.088.635-1.34-2.22-.252-4.555-1.11-4.555-4.938 0-1.091.39-1.984 1.029-2.683-.103-.253-.447-1.268.098-2.64 0 0 .84-.27 2.75 1.025a9.57 9.57 0 012.5-.337c.85.004 1.707.115 2.5.337 1.91-1.295 2.75-1.025 2.75-1.025.545 1.372.201 2.387.098 2.64.64.699 1.029 1.592 1.029 2.683 0 3.837-2.34 4.683-4.567 4.93.359.309.678.92.678 1.854 0 1.338-.012 2.415-.012 2.743 0 .268.18.576.688.48A10.001 10.001 0 0012 2z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                            View on GitHub
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </div>
                 ) : null;
@@ -331,32 +374,139 @@ function App() {
                     className="flex flex-col max-w-[400px] w-full bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105"
                   >
                     {/* Image Section */}
-                    <div className="w-full h-48 mb-4">
+                    <div className="w-full h-52 mb-4">
                       <img
                         src={project.image}
                         alt={project.name}
                         className="w-full h-full sm:object-contain md:object-cover rounded-lg"
                       />
                     </div>
-
                     {/* Title */}
-                    <h2 className="text-lg font-bold text-slate-800  truncate">
+                    <h2 className="text-xl font-semibold text-slate-800 truncate">
                       {project.name}
                     </h2>
 
                     {/* Description with Ellipsis */}
-                    <p className="text-left text-slate-600 mt-2 line-clamp-5">
+                    <p className="text-slate-600 mt-2 line-clamp-4">
                       {project.description}
                     </p>
+
+                    {/* View Project Button */}
+                    <div className=" flex justify-between">
+                      {project.link && (
+                        <div className="mt-4">
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-blue-600 font-medium hover:text-blue-800 transition"
+                          >
+                            <AiOutlineGlobal />
+                            Live Demo
+                          </a>
+                        </div>
+                      )}
+
+                      {/* GitHub Link */}
+                      {project.github && (
+                        <div className="mt-4">
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-blue-600 font-medium hover:text-blue-800 transition"
+                          >
+                            <svg
+                              className="w-5 h-5"
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M12 2a10 10 0 00-3.162 19.497c.5.092.682-.216.682-.481 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.455-1.155-1.11-1.463-1.11-1.463-.907-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.34 1.088 2.91.832.091-.647.349-1.088.635-1.34-2.22-.252-4.555-1.11-4.555-4.938 0-1.091.39-1.984 1.029-2.683-.103-.253-.447-1.268.098-2.64 0 0 .84-.27 2.75 1.025a9.57 9.57 0 012.5-.337c.85.004 1.707.115 2.5.337 1.91-1.295 2.75-1.025 2.75-1.025.545 1.372.201 2.387.098 2.64.64.699 1.029 1.592 1.029 2.683 0 3.837-2.34 4.683-4.567 4.93.359.309.678.92.678 1.854 0 1.338-.012 2.415-.012 2.743 0 .268.18.576.688.48A10.001 10.001 0 0012 2z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                            View on GitHub
+                          </a>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 ) : null;
               })}
+
+              {gameApps?.map((project, index) => (
+                <div
+                  onClick={() => setSelectedProject(project)}
+                  key={index}
+                  className="flex cursor-pointer flex-col max-w-[400px] w-full bg-white shadow-lg rounded-2xl p-6 transition-transform transform hover:scale-105 hover:shadow-xl"
+                >
+                  {/* Video Preview */}
+                  <div className="w-full h-52 mb-4 flex justify-center relative rounded-lg overflow-hidden">
+                    <video
+                      src={project.video}
+                      alt={project.name}
+                      className="h-full w-auto sm:object-contain md:object-contain rounded-lg cursor-pointer"
+                      controls
+                      autoPlay
+                      loop
+                      muted
+                      onClick={(e) => e.target.requestFullscreen()}
+                    />
+                  </div>
+
+                  {/* Title */}
+                  <h2 className="text-xl font-semibold text-slate-800 truncate">
+                    {project.name}
+                  </h2>
+
+                  {/* Description with Ellipsis */}
+                  <p className="text-slate-600 mt-2 line-clamp-4">
+                    {project.description}
+                  </p>
+
+                  {/* GitHub Link */}
+                  {project.github && (
+                    <div className="mt-4">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-blue-600 font-medium hover:text-blue-800 transition"
+                      >
+                        <svg
+                          className="w-5 h-5"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M12 2a10 10 0 00-3.162 19.497c.5.092.682-.216.682-.481 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.455-1.155-1.11-1.463-1.11-1.463-.907-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.34 1.088 2.91.832.091-.647.349-1.088.635-1.34-2.22-.252-4.555-1.11-4.555-4.938 0-1.091.39-1.984 1.029-2.683-.103-.253-.447-1.268.098-2.64 0 0 .84-.27 2.75 1.025a9.57 9.57 0 012.5-.337c.85.004 1.707.115 2.5.337 1.91-1.295 2.75-1.025 2.75-1.025.545 1.372.201 2.387.098 2.64.64.699 1.029 1.592 1.029 2.683 0 3.837-2.34 4.683-4.567 4.93.359.309.678.92.678 1.854 0 1.338-.012 2.415-.012 2.743 0 .268.18.576.688.48A10.001 10.001 0 0012 2z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        View on GitHub
+                      </a>
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {selectedProject && (
+                <Modal
+                  selectedProject={selectedProject}
+                  setSelectedProject={setSelectedProject}
+                />
+              )}
             </div>
           </div>
         </div>
 
         {/* Contact Section */}
-        <div id="contact" className="w-full lg:p-20 bg-white px-6 mt-10">
+        <div id="contact" className="w-full xl:p-20 bg-white px-6 mt-10">
           <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
             Get In <span className="text-blue-500">Touch</span>
           </h2>
