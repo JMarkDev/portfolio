@@ -9,7 +9,10 @@ const Modal = ({ selectedProject, setSelectedProject }) => {
           onClick={() => setSelectedProject(null)}
           className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4 z-50"
         >
-          <div className="bg-white   rounded-lg shadow-xl  max-w-3xl w-full relative">
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white   rounded-lg shadow-xl  max-w-3xl w-full relative"
+          >
             {/* Close Button */}
             <div className=" max-h-[90vh] overflow-y-auto  rounded-lg shadow-xl p-6 max-w-3xl w-full relative">
               <button
@@ -54,18 +57,20 @@ const Modal = ({ selectedProject, setSelectedProject }) => {
                   <div className="mt-4">
                     {/* Tech Stack Title */}
                     <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-                      <span>🛠️ Technologies Used:</span>
+                      <span>Technologies Used:</span>
                     </h3>
 
                     <div className="flex flex-wrap gap-3 mt-2">
-                      {selectedProject.tech.split(",").map((tech, index) => (
-                        <span
-                          key={index}
-                          className="bg-gray-200 text-gray-800 py-1 px-3 rounded-full text-sm font-medium transition-all duration-300 ease-in-out transform hover:bg-gray-800 hover:text-white hover:scale-105"
-                        >
-                          {tech.trim()}
-                        </span>
-                      ))}
+                      {selectedProject.tech_stack
+                        .split(",")
+                        .map((tech, index) => (
+                          <span
+                            key={index}
+                            className="bg-gray-200 text-gray-800 py-1 px-3 rounded-full text-sm font-medium transition-all duration-300 ease-in-out transform hover:bg-gray-800 hover:text-white hover:scale-105"
+                          >
+                            {tech.trim()}
+                          </span>
+                        ))}
                     </div>
                   </div>
 
@@ -76,12 +81,10 @@ const Modal = ({ selectedProject, setSelectedProject }) => {
                     </h3>{" "}
                     <ul className="list-disc list-inside text-gray-700 text-sm">
                       {" "}
-                      {selectedProject.features
-                        ?.split("\n")
-                        .map(
-                          (feature, i) =>
-                            feature.trim() && <li key={i}>{feature.trim()}</li>
-                        )}{" "}
+                      {selectedProject.features.map(
+                        (feature, i) =>
+                          feature.trim() && <li key={i}>{feature.trim()}</li>
+                      )}{" "}
                     </ul>
                   </div>
 
@@ -91,14 +94,10 @@ const Modal = ({ selectedProject, setSelectedProject }) => {
                       Game Mechanics
                     </h3>
                     <ul className="list-disc list-inside text-gray-700 text-sm">
-                      {selectedProject.game_mechanics
-                        ?.split("\n")
-                        .map(
-                          (mechanic, i) =>
-                            mechanic.trim() && (
-                              <li key={i}>{mechanic.trim()}</li>
-                            )
-                        )}
+                      {selectedProject.game_mechanics.map(
+                        (mechanic, i) =>
+                          mechanic.trim() && <li key={i}>{mechanic.trim()}</li>
+                      )}
                     </ul>
                   </div>
                 </div>
