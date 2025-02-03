@@ -12,11 +12,13 @@ import SocialmediaLinks from "./components/SocialMedia/SocialMedia";
 import { gameApps } from "./constants/GameApp";
 import Modal from "./components/Modal";
 import { AiOutlineGlobal } from "react-icons/ai";
+import WebAppModal from "./components/WebAppModal";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openLink, setOpenLink] = useState("home");
   const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedWebApp, setSelectedWebApp] = useState(null);
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
@@ -193,7 +195,7 @@ function App() {
           </div>
         </div>
 
-        <div className="xl:p-20 px-6 w-full mt-10">
+        <div className="xl:p-20 p-6 w-full">
           <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
             My <span className="text-blue-500">Services</span>
           </h2>
@@ -258,7 +260,7 @@ function App() {
         </div>
 
         {/* Skills Section */}
-        <div id="skills" className="w-full xl:p-20  px-6 mt-10">
+        <div id="skills" className="w-full xl:p-20  p-6">
           <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
             My <span className="text-blue-500">Skills</span>
           </h2>
@@ -284,7 +286,7 @@ function App() {
         </div>
 
         {/* Projects Section */}
-        <div id="projects" className="w-full xl:p-20   px-6 mt-10">
+        <div id="projects" className="w-full xl:p-20   p-6">
           <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
             Personal <span className="text-blue-500">Projects</span>
           </h2>
@@ -293,13 +295,18 @@ function App() {
               {projects?.map((project, index) => {
                 return project.category === "Personal Projects" ? (
                   <div
+                    onClick={() => setSelectedWebApp(project)}
                     key={index}
                     className="flex flex-col max-w-[400px] w-full bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105"
                   >
                     {/* Image Section */}
                     <div className="w-full h-52 mb-4">
                       <img
-                        src={project.image}
+                        src={
+                          Array.isArray(project.image)
+                            ? project.image[0]
+                            : project.image
+                        }
                         alt={project.name}
                         className="w-full h-full sm:object-contain md:object-cover rounded-lg"
                       />
@@ -371,12 +378,17 @@ function App() {
                 return project.category === "Freelance Projects" ? (
                   <div
                     key={index}
+                    onClick={() => setSelectedWebApp(project)}
                     className="flex flex-col max-w-[400px] w-full bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105"
                   >
                     {/* Image Section */}
                     <div className="w-full h-52 mb-4">
                       <img
-                        src={project.image}
+                        src={
+                          Array.isArray(project.image)
+                            ? project.image[0]
+                            : project.image
+                        }
                         alt={project.name}
                         className="w-full h-full sm:object-contain md:object-cover rounded-lg"
                       />
@@ -437,24 +449,43 @@ function App() {
                 ) : null;
               })}
 
+              {selectedWebApp && (
+                <WebAppModal
+                  selectedWebApp={selectedWebApp}
+                  setSelectedWebApp={setSelectedWebApp}
+                />
+              )}
+
               {gameApps?.map((project, index) => (
                 <div
                   onClick={() => setSelectedProject(project)}
                   key={index}
                   className="flex cursor-pointer flex-col max-w-[400px] w-full bg-white shadow-lg rounded-2xl p-6 transition-transform transform hover:scale-105 hover:shadow-xl"
                 >
-                  {/* Video Preview */}
-                  <div className="w-full h-52 mb-4 flex justify-center relative rounded-lg overflow-hidden">
+                  {/* Video Preview with Play Icon Overlay */}
+                  <div className="w-full h-52 mb-4 flex justify-center relative rounded-lg overflow-hidden group">
                     <video
                       src={project.video}
                       alt={project.name}
-                      className="h-full w-auto sm:object-contain md:object-contain rounded-lg cursor-pointer"
+                      className="h-full w-auto sm:object-contain md:object-contain rounded-lg cursor-pointer transition-all duration-300 group-hover:brightness-75"
                       controls
-                      autoPlay
-                      loop
                       muted
                       onClick={(e) => e.target.requestFullscreen()}
                     />
+
+                    {/* Play Icon (Shows on Hover) */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="bg-black bg-opacity-50 p-4 rounded-full">
+                        <svg
+                          className="w-12 h-12 text-white"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Title */}
@@ -506,7 +537,7 @@ function App() {
         </div>
 
         {/* Contact Section */}
-        <div id="contact" className="w-full xl:p-20 bg-white px-6 mt-10">
+        <div id="contact" className="w-full xl:p-20 bg-white p-6 ">
           <h2 className="text-4xl font-extrabold text-slate-800 md:text-5xl mb-10 text-center">
             Get In <span className="text-blue-500">Touch</span>
           </h2>
@@ -591,7 +622,7 @@ function App() {
         </div>
 
         {/* Footer Section */}
-        <div className="w-full p-4 text-center mt-10">
+        <div className="w-full p-4 text-center">
           <p className="text-slate-600">
             &copy; 2025 Josiel Mark. All rights reserved.
           </p>
