@@ -3,6 +3,7 @@ import {
   FaLinkedinIn,
   FaFacebookF,
   FaGithub,
+  FaCode,
   // FaPinterest,
 } from "react-icons/fa";
 import { FaDribbble } from "react-icons/fa6";
@@ -15,6 +16,8 @@ const Navbar = ({ scrollToSection, isMenuOpen, setIsMenuOpen, openLink }) => {
         onClick={() => scrollToSection("home")}
         className="text-blue-700 font-extrabold text-3xl hover:scale-110 transition-transform cursor-pointer flex items-center space-x-2"
       >
+        {" "}
+        <FaCode className="text-3xl" />
         <span className="bg-gradient-to-r from-blue-500 to-cyan-500 text-transparent bg-clip-text">
           JMark
         </span>

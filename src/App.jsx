@@ -134,7 +134,7 @@ function App() {
                 onClick={() => scrollToSection("contact")}
                 className="hover:bg-blue-600 relative text-nowrap px-4 py-2.5 flex items-center justify-center gap-3 md:text-lg text-sm text-blue-600 rounded-lg shadow-lg transition-all duration-300 border-blue-600 border-2 "
               >
-                <span className=" transition-all duration-300 group-hover:text-white">
+                <span className="text-nowrap transition-all  duration-300 group-hover:text-white">
                   Contact Me
                 </span>
                 <svg
@@ -152,7 +152,7 @@ function App() {
             {/* Download Resume Button */}
             <div className="relative group">
               <button className="hover:bg-blue-600 relative text-nowrap px-4 py-2.5 flex items-center justify-center gap-3 md:text-lg text-sm text-blue-600 rounded-lg shadow-lg transition-all duration-300 border-blue-600 border-2 ">
-                <span className=" transition-all duration-300 group-hover:text-white">
+                <span className="text-nowrap transition-all duration-300 group-hover:text-white">
                   Download Resume
                 </span>
                 <svg
@@ -171,7 +171,7 @@ function App() {
         {/* Profile Image Section */}
         {/* Profile Image Section */}
         <div className="flex flex-col items-center">
-          <div className="w-32 sm:w-40 lg:w-80 relative">
+          <div className="w-40 sm:w-44 lg:w-80 relative">
             <img
               src={profileImg}
               alt="profile"
