@@ -126,15 +126,14 @@ function App() {
             code to deliver exceptional user experiences.
           </p>
 
-          <div className="flex gap-5">
+          <div className="flex space-x-4">
             {/* Contact Me Button */}
-
             <div className="relative group">
               <button
                 onClick={() => scrollToSection("contact")}
-                className="hover:bg-blue-600 relative text-nowrap px-4 py-2.5 flex items-center justify-center gap-3 md:text-lg text-sm text-blue-600 rounded-lg shadow-lg transition-all duration-300 border-blue-600 border-2 "
+                className="hover:bg-blue-600 relative text-nowrap px-4 py-2.5 flex items-center justify-center gap-3 md:text-lg text-sm text-blue-600 rounded-lg shadow-lg transition-all duration-300 border-blue-600 border-2"
               >
-                <span className="text-nowrap transition-all  duration-300 group-hover:text-white">
+                <span className="text-nowrap transition-all duration-300 group-hover:text-white">
                   Contact Me
                 </span>
                 <svg
@@ -142,7 +141,7 @@ function App() {
                   width="24"
                   height="24"
                   viewBox="0 0 64 64"
-                  className="fill-current  transition-all duration-300 group-hover:text-white"
+                  className="fill-current transition-all duration-300 group-hover:text-white"
                 >
                   <path d="M8.216 36.338L26.885 32.604C28.552 32.271 28.552 31.729 26.885 31.396L8.216 27.662C7.104 27.44 6.021 26.356 5.799 25.245L2.065 6.576C1.731 4.908 2.714 4.133 4.259 4.846L61.228 31.139C62.257 31.614 62.257 32.386 61.228 32.861L4.259 59.154C2.714 59.867 1.731 59.092 2.065 57.424L5.799 38.755C6.021 37.644 7.104 36.56 8.216 36.338Z"></path>
                 </svg>
@@ -151,7 +150,7 @@ function App() {
 
             {/* Download Resume Button */}
             <div className="relative group">
-              <button className="hover:bg-blue-600 relative text-nowrap px-4 py-2.5 flex items-center justify-center gap-3 md:text-lg text-sm text-blue-600 rounded-lg shadow-lg transition-all duration-300 border-blue-600 border-2 ">
+              <button className="hover:bg-blue-600 relative text-nowrap px-4 py-2.5 flex items-center justify-center gap-3 md:text-lg text-sm text-blue-600 rounded-lg shadow-lg transition-all duration-300 border-blue-600 border-2">
                 <span className="text-nowrap transition-all duration-300 group-hover:text-white">
                   Download Resume
                 </span>
@@ -159,7 +158,7 @@ function App() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 24 24"
-                  className="w-6 h-6  transition-all duration-300 group-hover:text-white"
+                  className="w-6 h-6 transition-all duration-300 group-hover:text-white"
                 >
                   <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm7-1v4H5v-4H3v4c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-4h-2z"></path>
                 </svg>
