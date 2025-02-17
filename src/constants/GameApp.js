@@ -25,7 +25,7 @@ export const gameApps = [
     ],
     video: flapp_bird,
     tech_stack: "Java, Android Studio",
-    github: "https://github.com",
+    github: "https://github.com/JMarkDev/Flappy-Bird-Clone-JH-Project.git",
   },
   {
     name: "Running Dino Game",
@@ -49,7 +49,7 @@ export const gameApps = [
     ],
     video: running_dino,
     tech_stack: "Java, Android Studio",
-    github: "https://github.com",
+    github: "https://github.com/JMarkDev/Jumping-Little-Dino.git",
   },
   {
     name: "Shoot Your Shot Game",
@@ -71,7 +71,7 @@ export const gameApps = [
     ],
     video: shoot_your_shot,
     tech_stack: "Java, Android Studio",
-    github: "https://github.com",
+    github: "https://github.com/JMarkDev/Shoot-Your-Shot-Game.git",
   },
   {
     name: "Bird Hunt Game",
@@ -95,7 +95,7 @@ export const gameApps = [
     ],
     video: bird_hunt,
     tech_stack: "Java, Android Studio",
-    github: "https://github.com",
+    github: "https://github.com/JMarkDev/Bird-Hunt-JH-Project.git",
   },
   {
     name: "Save the Earth Game",
@@ -119,6 +119,6 @@ export const gameApps = [
     ],
     video: save_the_earth,
     tech_stack: "Java, Android Studio",
-    github: "https://github.com",
+    github: "https://github.com/JMarkDev/Save-the-Earth-Game-.git",
   },
 ];
