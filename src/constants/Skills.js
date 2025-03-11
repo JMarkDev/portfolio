@@ -14,6 +14,7 @@ import socketImg from "../assets/socket.io.png";
 import dialogflowImg from "../assets/dialogflow.png";
 import sequelizeImg from "../assets/sequelize.png";
 import jestJsImg from "../assets/jest-svgrepo-com.svg";
+import typescriptImg from "../assets/typescript.png";
 
 export const skills = [
   {
@@ -27,6 +28,10 @@ export const skills = [
   {
     name: "JavaScript",
     icon: js,
+  },
+  {
+    name: "TypeScript",
+    icon: typescriptImg,
   },
   {
     name: "Bootstrap",

@@ -154,7 +154,7 @@ function App() {
               <button className="hover:bg-blue-600 relative whitespace-nowrap px-4 py-2.5 flex items-center justify-center gap-3 md:text-lg text-sm text-blue-600 rounded-lg shadow-lg transition-all duration-300 border-blue-600 border-2 ">
                 <span className="whitespace-nowrap transition-all duration-300 group-hover:text-white">
                   <a
-                    href="/portfolio/Josiel_Mark_Seroy_Resume.pdf"
+                    href="/portfolio/Josiel_Mark_Seroy_Full_Stack_Developer_Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
