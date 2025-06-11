@@ -6,7 +6,7 @@ import webDevelopmentImg from "./assets/web development.png";
 import appDevelopmentImg from "./assets/app dev.png";
 import { skills } from "./constants/Skills";
 import { projects } from "./constants/Projects";
-
+import gradPic from "./assets/profile_img.jpeg";
 import SocialmediaLinks from "./components/SocialMedia/SocialMedia";
 import { gameApps } from "./constants/GameApp";
 
@@ -179,7 +179,7 @@ function App() {
         <div className="flex flex-col items-center">
           <div className="w-40 sm:w-44 lg:w-80 relative">
             <img
-              src={profileImg}
+              src={gradPic}
               alt="profile"
               className="rounded-full w-full object-cover shadow-lg hover:scale-105 transition-transform"
             />
@@ -220,7 +220,7 @@ function App() {
 
             {/* About Content */}
             <p className="text-slate-600 text-justify leading-relaxed ">
-              I am a results-driven Full-Stack Developer with two years of
+              I am a results-driven Full-Stack Developer with over two years of
               experience building dynamic and scalable web applications. I
               specialize in crafting intuitive, high-performance digital
               solutions tailored to user needs and project requirements. With

@@ -35,7 +35,7 @@ const Contact = ({
 
           <p className="flex items-center gap-3">
             <FaPhone className="text-blue-600 text-lg" />
-            <span className="text-blue-600">+639757718249</span>
+            <span className="text-blue-600">+639268653510</span>
           </p>
 
           <p className="flex items-center gap-3">

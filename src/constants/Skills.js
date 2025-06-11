@@ -15,6 +15,7 @@ import dialogflowImg from "../assets/dialogflow.png";
 import sequelizeImg from "../assets/sequelize.png";
 import jestJsImg from "../assets/jest-svgrepo-com.svg";
 import typescriptImg from "../assets/typescript.png";
+import nestJsImg from "../assets/nestjs-icon.svg";
 
 export const skills = [
   {
@@ -56,6 +57,10 @@ export const skills = [
   {
     name: "Express JS",
     icon: expressJsImg,
+  },
+  {
+    name: "Nest JS",
+    icon: nestJsImg,
   },
   {
     name: "Git Source Control",
