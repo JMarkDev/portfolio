@@ -159,7 +159,7 @@ export const projects = [
     ],
     link: "https://tarakabataan.com/",
     github: "https://github.com/JMarkDev/Tara-Kabataan-Event-Management.git",
-    category: "Personal Projects",
+    category: "Freelance Projects",
   },
   {
     name: "PC Wizard Chatbot",
