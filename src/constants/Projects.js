@@ -55,7 +55,35 @@ import grading_portal6 from "../assets/grading_portal/manage class.png";
 import grading_portal7 from "../assets/grading_portal/student grade.png";
 import grading_portal8 from "../assets/grading_portal/instructor page.png";
 
+import restaurant_finder1 from "../assets/restaurant_finder/Screenshot 2025-06-18 123604.png";
+import restaurant_finder2 from "../assets/restaurant_finder/Screenshot 2025-06-18 123729.png";
+import restaurant_finder3 from "../assets/restaurant_finder/Screenshot 2025-06-18 123753.png";
+
 export const projects = [
+  {
+    name: "LLM-Driven Restaurant Finder App",
+    description:
+      "An intelligent restaurant search application that converts natural language queries into structured restaurant searches using AI and the Foursquare Places API. Users can input queries like “Find me cheap sushi in downtown LA that’s open now” and get real-time restaurant data with detailed info such as name, address, cuisine, rating, price level, and operating hours.",
+    image: [restaurant_finder1, restaurant_finder2, restaurant_finder3],
+    features: [
+      "Natural Language Processing with Google Gemini AI",
+      "AI-powered query conversion to structured API calls",
+      "Real-time restaurant data from Foursquare Places API",
+      "Comprehensive restaurant info: rating, price, hours",
+      "Search filters: location, cuisine, price, open now",
+    ],
+    tech_stack: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "Google Gemini AI",
+      "Foursquare Places API",
+    ],
+    link: "",
+    github: "https://github.com/JMarkDev/LLM-Driven-Restaurant-Finder-App.git",
+    category: "Personal Projects",
+  },
   {
     name: "WMSU-ESU Document Tracker System",
     description:
